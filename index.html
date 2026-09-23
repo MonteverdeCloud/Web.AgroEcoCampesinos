@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description"
+        content="Agroecología Los Campesinos — Experiencias auténticas en una finca familiar en San Luis de Monteverde, Costa Rica." />
+    <title>Agroecología Los Campesinos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/paleta.css" />
+
+    <link rel="icon" type="image/png" href="assets/src/logo.png" />
+</head>
+
+<body>
+
+    <!-- ==================== NAV ==================== -->
+    <header class="nav" id="nav">
+        <div class="nav__contenedor">
+            <a href="#inicio" class="nav__logo">
+                <span class="nav__logo-marco">
+                    <img src="assets/src/logo.png" alt="Agroecología Los Campesinos" />
+                </span>
+                <span class="nav__logo-texto">Los Campesinos</span>
+            </a>
+            <nav class="nav__links" id="navLinks">
+                <a href="#inicio">Inicio</a>
+                <a href="#experiencias">Experiencias</a>
+                <a href="#visitanos">Visítanos</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#voluntariado">Voluntariado</a>
+                <a href="#valores">Valores</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <button class="nav__toggle" id="navToggle" aria-label="Menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ==================== 1. HERO ==================== -->
+        <section class="hero" id="inicio">
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="assets/src/video/video-hero.mp4" type="video/mp4" />
+            </video>
+            <div class="hero__overlay"></div>
+            <div class="hero__contenido">
+                <h1 class="hero__slogan animar">
+                    Conectá con la tierra y viví la autenticidad del campo
+                </h1>
+            </div>
+            <a href="#experiencias" class="hero__scroll" aria-label="Desliza">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ==================== 2. EXPERIENCIAS ==================== -->
+        <section class="seccion seccion--alterna" id="experiencias">
+            <div class="contenedor">
+                <h2 class="animar titulo-seccion">
+                    Viví una experiencia auténtica en una granja familiar en Monteverde
+                </h2>
+
+                <!-- CARRUSEL DE TARJETAS -->
+                <div class="carrusel animar" id="carrusel">
+                    <button class="carrusel__flecha carrusel__flecha--izq" id="carruselPrev" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carrusel__viewport" id="carruselViewport">
+
+                        <!-- 1. Casita -->
+                        <article class="tarjeta">
+                            <div class="tarjeta__imagen">
+                                <img src="assets/src/img/casita.jpg" alt="Casita campesina" />
+                            </div>
+                            <div class="tarjeta__cuerpo">
+                                <h3>Nuestra casita campesina te espera</h3>
+                                <p>
+                                    Nuestra casita es un espacio para vivir la esencia del campo.
+                                    Te invitamos a hospedarte y descubrir la magia de despertar con
+                                    el canto de las aves y el susurro del viento entre los árboles.
+                                </p>
+                                <a href="#" class="boton-tarjeta" id="btnCasita">
+                                    Conocer la casita
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- 2. Comida -->
+                        <article class="tarjeta">
+                            <div class="tarjeta__imagen">
+                                <img src="assets/src/img/platillos.jpg" alt="Platillos criollos" />
+                            </div>
+                            <div class="tarjeta__cuerpo">
+                                <h3>Disfruta nuestros platillos criollos</h3>
+                                <p>
+                                    Sabores que cuentan historias, aromas que evocan recuerdos.
+                                    Cada bocado es un homenaje a nuestras tradiciones culinarias.
+                                    Disfruta de platos preparados con esmero, utilizando productos
+                                    cultivados en nuestra finca, y déjate seducir por la frescura y
+                                    el sabor de lo auténtico.
+                                </p>
+                                <a href="#" class="boton-tarjeta" id="btnPlatillos">
+                                    Ver nuestro menú
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- 3. Tierra -->
+                        <article class="tarjeta">
+                            <div class="tarjeta__imagen">
+                                <img src="assets/src/img/tierra.jpg" alt="Conexión con la tierra" />
+                            </div>
+                            <div class="tarjeta__cuerpo">
+                                <h3>Conecta con nuestra tierra</h3>
+                                <p>
+                                    Embárcate en un viaje sensorial donde cada paso te acerca a la
+                                    esencia de la naturaleza. En nuestra finca agroecológica, te
+                                    invitamos a sentir el latido de la tierra que cultivamos con
+                                    amor y respeto. Conoce nuestras prácticas sostenibles y aprende
+                                    a convivir armoniosamente con el entorno que nos rodea.
+                                </p>
+                                <a href="#" class="boton-tarjeta" id="btnTierra">
+                                    Explorar la finca
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <button class="carrusel__flecha carrusel__flecha--der" id="carruselNext" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carrusel__dots" id="carruselDots"></div>
+                </div>
+
+                <!-- CARRUSEL MINIMALISTA DE ÍCONOS -->
+                <div class="carrusel-iconos animar" id="carruselIconos">
+                    <button class="carrusel__flecha carrusel__flecha--izq" id="iconosPrev" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carrusel-iconos__viewport" id="carruselIconosViewport">
+                        <article class="icono">
+                            <div class="icono__circulo">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <h3>Finca Agroecológica</h3>
+                            <p>
+                                Combinamos prácticas agrícolas sostenibles con el respeto por los
+                                ecosistemas locales.
+                            </p>
+                        </article>
+
+                        <article class="icono">
+                            <div class="icono__circulo">
+                                <i class="fa-solid fa-tractor"></i>
+                            </div>
+                            <h3>Finca Integral</h3>
+                            <p>
+                                Integramos diversos sistemas de producción y prácticas sostenibles.
+                            </p>
+                        </article>
+
+                        <article class="icono">
+                            <div class="icono__circulo">
+                                <i class="fa-solid fa-jar"></i>
+                            </div>
+                            <h3>Meliponario Educativo</h3>
+                            <p>
+                                Protegemos y ayudamos a las abejas sin aguijón para conservar la
+                                biodiversidad, impulsar la polinización y compartir saberes sobre
+                                su importancia cultural y ecológica.
+                            </p>
+                        </article>
+                    </div>
+
+                    <button class="carrusel__flecha carrusel__flecha--der" id="iconosNext" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carrusel-iconos__progreso">
+                        <div class="carrusel-iconos__barra" id="carruselIconosBarra"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== 3. VISÍTANOS ==================== -->
+        <section class="seccion visitanos" id="visitanos">
+            <div class="contenedor visitanos__contenido">
+                <h2 class="animar">¡Visítanos!</h2>
+                <p class="animar">
+                    La naturaleza, la cultura y el bienestar se fusionan en nuestra finca
+                    agroecológica, mientras aprendes, compartes y reconectas con la tierra.
+                    Vive una escapatoria tranquila, una experiencia inolvidable y conecta
+                    con la tierra.
+                </p>
+
+                <div class="video-seccion animar">
+                    <video autoplay muted loop playsinline>
+                        <source src="assets/src/video/video-finca.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <p class="animar visitanos__pregunta">¿Qué esperas?</p>
+                <p class="animar">Nuestra finca es el lugar perfecto para ti.</p>
+
+                <div class="visitanos__accion animar">
+                    <a href="#" class="boton boton--outline" id="btnGaleria">
+                        <i class="fa-solid fa-images"></i>
+                        Nuestra galería de fotos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. QUIÉNES SOMOS ==================== -->
+        <section class="seccion nosotros" id="nosotros">
+            <div class="contenedor nosotros__contenido">
+                <h2 class="animar titulo-seccion">¿Quiénes somos?</h2>
+
+                <div class="nosotros__foto animar">
+                    <img src="assets/src/img/familia.jpg" alt="Familia campesina" />
+                </div>
+
+                <div class="nosotros__texto animar">
+                    <p>
+                        Somos una familia de campesinos que creó un proyecto de vida para
+                        preservar la conexión con la tierra. En nuestra finca Agroecología
+                        Los Campesinos, ubicada en San Luis de Monteverde, ofrecemos
+                        experiencias auténticas que permiten a los visitantes sumergirse en
+                        la cultura rural y la agricultura sostenible.
+                    </p>
+                    <p>
+                        Participa en actividades como sembrar orgánico, alimentar animales,
+                        cosechar productos frescos, hospedarte en un entorno natural y
+                        disfrutar de alimentos locales. Además, nos apasiona la conservación
+                        de las abejas sin aguijón, esenciales para la polinización y la salud
+                        de nuestros ecosistemas. A través de prácticas de meliponicultura,
+                        buscamos sensibilizar sobre su importancia y promover su protección.
+                    </p>
+                    <p>
+                        Fomentamos una relación armoniosa entre la humanidad y el medio
+                        ambiente, educando sobre técnicas agrícolas sustentables y el uso
+                        responsable de los recursos naturales.
+                    </p>
+                </div>
+
+                <div class="nosotros__accion animar">
+                    <a href="#" class="boton" id="btnFamilia">
+                        <i class="fa-solid fa-people-group"></i>
+                        Conoce a la familia
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. VOLUNTARIADO ==================== -->
+        <section class="seccion seccion--alterna voluntariado" id="voluntariado">
+            <div class="contenedor voluntariado__contenido">
+                <h2 class="animar titulo-seccion">Servicio de Voluntariado</h2>
+
+                <div class="voluntariado__grid">
+                    <div class="voluntariado__imagen animar">
+                        <img src="assets/src/img/voluntariado.jpg" alt="Voluntariado en la finca" />
+                    </div>
+
+                    <div class="voluntariado__texto animar">
+                        <p>
+                            ¿Quieres conocer cómo puedes ser parte de nuestro equipo de
+                            voluntarios?
+                        </p>
+                        <p>
+                            Escríbenos para más información.
+                        </p>
+                        <a href="#" class="boton" id="btnVoluntariado">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Quiero ser voluntario
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 6. VALORES Y RESPALDO ==================== -->
+        <section class="seccion valores" id="valores">
+            <div class="contenedor">
+                <h2 class="animar titulo-seccion">Los valores que nos representan</h2>
+
+                <!-- CARRUSEL DE VALORES (minimalista con flechas + barra) -->
+                <div class="carrusel-valores animar" id="carruselValores">
+                    <button class="carrusel__flecha carrusel__flecha--izq" id="valoresPrev" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carrusel-valores__viewport" id="carruselValoresViewport">
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
+                            <h3>Conservación</h3>
+                            <p>Protegemos y apoyamos especies fundamentales para la polinización.</p>
+                        </article>
+
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-hands-holding-circle"></i>
+                            </div>
+                            <h3>Conexión</h3>
+                            <p>Fomentamos una relación con la naturaleza y la vida campesina.</p>
+                        </article>
+
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3>Educación</h3>
+                            <p>Compartimos conocimientos para inspirar prácticas conscientes y sostenibles.</p>
+                        </article>
+
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                            </div>
+                            <h3>Cultura</h3>
+                            <p>Preservación y promoción de las tradiciones campesinas.</p>
+                        </article>
+
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <h3>Innovación</h3>
+                            <p>Incorporamos prácticas modernas para mejorar nuestras actividades.</p>
+                        </article>
+
+                        <article class="valor">
+                            <div class="valor__icono">
+                                <i class="fa-solid fa-hand-fist"></i>
+                            </div>
+                            <h3>Empoderamiento</h3>
+                            <p>Brindamos herramientas y conocimientos para tomar decisiones responsables y sostenibles.
+                            </p>
+                        </article>
+                    </div>
+
+                    <button class="carrusel__flecha carrusel__flecha--der" id="valoresNext" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carrusel-iconos__progreso">
+                        <div class="carrusel-iconos__barra" id="carruselValoresBarra"></div>
+                    </div>
+                </div>
+
+                <!-- RESPALDO (carrusel tipo tarjetas con dots) -->
+                <div class="respaldo animar">
+                    <h3 class="respaldo__titulo">Contamos con el respaldo de:</h3>
+
+                    <div class="carrusel-respaldo" id="carruselRespaldo">
+                        <button class="carrusel__flecha carrusel__flecha--izq" id="respaldoPrev" aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carrusel-respaldo__viewport" id="carruselRespaldoViewport">
+                            <div class="respaldo__item">
+                                <img src="assets/src/img/respaldo-1.png" alt="Respaldo 1" />
+                            </div>
+                            <div class="respaldo__item">
+                                <img src="assets/src/img/respaldo-2.png" alt="Respaldo 2" />
+                            </div>
+                            <div class="respaldo__item">
+                                <img src="assets/src/img/respaldo-3.png" alt="Respaldo 3" />
+                            </div>
+                            <div class="respaldo__item">
+                                <img src="assets/src/img/respaldo-4.avif" alt="Respaldo 4" />
+                            </div>
+                        </div>
+
+                        <button class="carrusel__flecha carrusel__flecha--der" id="respaldoNext" aria-label="Siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <div class="carrusel__dots" id="carruselRespaldoDots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 7. CONTACTO ==================== -->
+        <section class="seccion seccion--verde contacto" id="contacto">
+            <div class="contenedor contacto__contenido">
+                <h2 class="animar titulo-seccion">Contáctanos</h2>
+
+                <a href="#" class="boton animar" id="botonReserva">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Reserva tu visita
+                </a>
+
+                <div class="redes animar">
+                    <a href="#" class="redes__item" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="#" class="redes__item" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="redes__item" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+
+                <div class="ubicacion animar">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>
+                        <strong>Ven a visitarnos</strong><br />
+                        San Luis,<br />
+                        Provincia de Puntarenas,<br />
+                        Monteverde, Costa Rica
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor footer__contenido">
+            <span class="footer__logo-marco">
+                <img src="assets/src/logo.png" alt="Los Campesinos" class="footer__logo" />
+            </span>
+            <p>© <span id="anio"></span> Agroecología Los Campesinos · Monteverde, Costa Rica</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/animaciones.js"></script>
+</body>
+
+</html>
