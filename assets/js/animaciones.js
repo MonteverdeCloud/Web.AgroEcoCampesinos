@@ -278,4 +278,122 @@ document.addEventListener('DOMContentLoaded', () => {
         itemSelector: '.respaldo__item'
     });
 
+    /* =========================================================
+       8. SISTEMA DE MODALES
+       ========================================================= */
+
+    /* --- 8.1 Abrir/cerrar modales genéricos --- */
+    const modales = document.querySelectorAll('.modal');
+
+    function abrirModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.classList.add('abierto');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModal(modal) {
+        if (!modal) return;
+        modal.classList.remove('abierto');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function cerrarTodosLosModales() {
+        modales.forEach(m => cerrarModal(m));
+    }
+
+    /* --- 8.2 Botones que abren modales (data-modal="id") --- */
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = btn.getAttribute('data-modal');
+            abrirModal(id);
+        });
+    });
+
+    /* --- 8.3 Cierre: click en backdrop o botón [data-close] --- */
+    document.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', () => {
+            const modal = el.closest('.modal');
+            cerrarModal(modal);
+        });
+    });
+
+    /* --- 8.4 Cierre con tecla ESC --- */
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const modalAbierto = document.querySelector('.modal.abierto');
+            if (modalAbierto) cerrarModal(modalAbierto);
+        }
+    });
+
+    /* --- 8.5 Carruseles dentro de modales --- */
+    document.querySelectorAll('[data-modal-carrusel]').forEach(carrusel => {
+        const viewport = carrusel.querySelector('[data-carrusel-viewport]');
+        const prev = carrusel.querySelector('[data-carrusel-prev]');
+        const next = carrusel.querySelector('[data-carrusel-next]');
+        const dotsWrap = carrusel.querySelector('[data-carrusel-dots]');
+
+        if (!viewport || !prev || !next || !dotsWrap) return;
+
+        const slides = viewport.querySelectorAll('.modal-carrusel__slide');
+        if (!slides.length) return;
+
+        let index = 0;
+
+        // Crear dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carrusel__dot';
+            dot.setAttribute('aria-label', `Ir a la foto ${i + 1}`);
+            dot.addEventListener('click', () => irA(i));
+            dotsWrap.appendChild(dot);
+        });
+
+        const dots = dotsWrap.querySelectorAll('.carrusel__dot');
+
+        function irA(i) {
+            index = Math.max(0, Math.min(i, slides.length - 1));
+            const slide = slides[index];
+            viewport.scrollTo({
+                left: slide.offsetLeft - viewport.offsetLeft,
+                behavior: 'smooth'
+            });
+            actualizarUI();
+        }
+
+        function actualizarUI() {
+            dots.forEach((d, i) => d.classList.toggle('activo', i === index));
+            prev.disabled = index === 0;
+            next.disabled = index === slides.length - 1;
+        }
+
+        prev.addEventListener('click', () => irA(index - 1));
+        next.addEventListener('click', () => irA(index + 1));
+
+        // Detectar scroll manual (swipe)
+        let scrollTimeout;
+        viewport.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const scrollLeft = viewport.scrollLeft;
+                let masCercano = 0;
+                let distanciaMinima = Infinity;
+                slides.forEach((s, i) => {
+                    const distancia = Math.abs(s.offsetLeft - viewport.offsetLeft - scrollLeft);
+                    if (distancia < distanciaMinima) {
+                        distanciaMinima = distancia;
+                        masCercano = i;
+                    }
+                });
+                index = masCercano;
+                actualizarUI();
+            }, 80);
+        }, { passive: true });
+
+        actualizarUI();
+    });
+
 });

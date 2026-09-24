@@ -92,14 +92,14 @@
                                     Te invitamos a hospedarte y descubrir la magia de despertar con
                                     el canto de las aves y el susurro del viento entre los árboles.
                                 </p>
-                                <a href="#" class="boton-tarjeta" id="btnCasita">
+                                <button class="boton-tarjeta" data-modal="modalCasita">
                                     Conocer la casita
                                     <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                                </button>
                             </div>
                         </article>
 
-                        <!-- 2. Comida -->
+                        <!-- 2. Platillos -->
                         <article class="tarjeta">
                             <div class="tarjeta__imagen">
                                 <img src="assets/src/img/platillos.jpg" alt="Platillos criollos" />
@@ -113,10 +113,10 @@
                                     cultivados en nuestra finca, y déjate seducir por la frescura y
                                     el sabor de lo auténtico.
                                 </p>
-                                <a href="#" class="boton-tarjeta" id="btnPlatillos">
+                                <button class="boton-tarjeta" data-modal="modalPlatillos">
                                     Ver nuestro menú
                                     <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                                </button>
                             </div>
                         </article>
 
@@ -134,10 +134,10 @@
                                     amor y respeto. Conoce nuestras prácticas sostenibles y aprende
                                     a convivir armoniosamente con el entorno que nos rodea.
                                 </p>
-                                <a href="#" class="boton-tarjeta" id="btnTierra">
+                                <button class="boton-tarjeta" data-modal="modalRecorrido">
                                     Explorar la finca
                                     <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                                </button>
                             </div>
                         </article>
 
@@ -265,10 +265,10 @@
                 </div>
 
                 <div class="nosotros__accion animar">
-                    <a href="#" class="boton" id="btnFamilia">
+                    <button class="boton" data-modal="modalFamilia">
                         <i class="fa-solid fa-people-group"></i>
                         Conoce a la familia
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -305,7 +305,6 @@
             <div class="contenedor">
                 <h2 class="animar titulo-seccion">Los valores que nos representan</h2>
 
-                <!-- CARRUSEL DE VALORES (minimalista con flechas + barra) -->
                 <div class="carrusel-valores animar" id="carruselValores">
                     <button class="carrusel__flecha carrusel__flecha--izq" id="valoresPrev" aria-label="Anterior">
                         <i class="fa-solid fa-chevron-left"></i>
@@ -371,7 +370,6 @@
                     </div>
                 </div>
 
-                <!-- RESPALDO (carrusel tipo tarjetas con dots) -->
                 <div class="respaldo animar">
                     <h3 class="respaldo__titulo">Contamos con el respaldo de:</h3>
 
@@ -391,7 +389,7 @@
                                 <img src="assets/src/img/respaldo-3.png" alt="Respaldo 3" />
                             </div>
                             <div class="respaldo__item">
-                                <img src="assets/src/img/respaldo-4.avif" alt="Respaldo 4" />
+                                <img src="assets/src/img/respaldo-4.png" alt="Respaldo 4" />
                             </div>
                         </div>
 
@@ -452,6 +450,292 @@
             <p>© <span id="anio"></span> Agroecología Los Campesinos · Monteverde, Costa Rica</p>
         </div>
     </footer>
+
+    <!-- =========================================================
+       MODALES
+       ========================================================= -->
+
+    <!-- MODAL: CASITA CAMPESINA -->
+    <div class="modal" id="modalCasita" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloCasita">
+            <button class="modal__cerrar" data-close aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal__scroll">
+                <h2 class="modal__titulo" id="tituloCasita">Casita Campesina</h2>
+
+                <!-- Carrusel de 5 fotos -->
+                <div class="modal-carrusel" data-modal-carrusel>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
+                        aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/casita-1.jpg" alt="Casita 1" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/casita-2.jpg" alt="Casita 2" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/casita-3.jpg" alt="Casita 3" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/casita-4.jpg" alt="Casita 4" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/casita-5.jpg" alt="Casita 5" />
+                        </div>
+                    </div>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
+                        aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
+                </div>
+
+                <div class="modal__texto">
+                    <p>
+                        Estamos ubicados en las faldas del Bosque Nuboso de Monteverde
+                        rodeado de bosque y tranquilidad.
+                    </p>
+                    <p>
+                        Imagina despertarte con el canto de los pájaros. Disfruta de tu café
+                        o té matutino en nuestra terraza procesado en Agroecología los
+                        Campesinos. Rodeado de vistas a las montañas que te dejarán sin
+                        aliento. Con espacios abiertos y una decoración acogedora, te
+                        invitamos a relajarte y recargar energías.
+                    </p>
+                    <p>
+                        Puedes disfrutar de una caminata por la finca, conocer los animales,
+                        las hortalizas y compartir con los anfitriones.
+                    </p>
+
+                    <h3>Acceso a los huéspedes</h3>
+                    <p>
+                        Senderos para caminar en el bosque, mesa de jardín, zona BBQ,
+                        recorrido por la granja (Gallinas, Cerdos, Huerto, Jardín de plantas
+                        medicinales).
+                    </p>
+
+                    <h3>Con tu visita colaboras</h3>
+                    <p>
+                        Tu estancia en la casa apoya el crecimiento del proyecto de
+                        Agroecología los Campesinos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PLATILLOS CRIOLLOS -->
+    <div class="modal" id="modalPlatillos" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloPlatillos">
+            <button class="modal__cerrar" data-close aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal__scroll">
+                <h2 class="modal__titulo" id="tituloPlatillos">Servicio de desayuno</h2>
+
+                <!-- Carrusel de 3 fotos -->
+                <div class="modal-carrusel" data-modal-carrusel>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
+                        aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/platillos-1.jpg" alt="Desayuno 1" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/platillos-2.jpg" alt="Desayuno 2" />
+                        </div>
+                        <div class="modal-carrusel__slide">
+                            <img src="assets/src/img/platillos-3.jpg" alt="Desayuno 3" />
+                        </div>
+                    </div>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
+                        aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
+                </div>
+
+                <div class="modal__texto">
+                    <p>
+                        Un amanecer con sabor y tradición, disfruta de un desayuno auténtico,
+                        rodeado por la naturaleza y la brisa fresca de la montaña. En
+                        Agroecología los Campesinos, cada plato está preparado con
+                        ingredientes frescos y orgánicos, muchos cultivados en nuestra propia
+                        finca.
+                    </p>
+
+                    <h3>Menú</h3>
+
+                    <h4>Desayuno campesino:</h4>
+                    <p>
+                        Gallo pinto, huevos, plátanos y queso o frutas de temporada.
+                    </p>
+
+                    <h4>Opciones ligeras:</h4>
+                    <ul>
+                        <li>Tostadas con mermelada artesanal y frutas de temporada.</li>
+                        <li>Tostadas con huevo y frutas de temporada.</li>
+                        <li>Pancakes con frutas de temporada.</li>
+                    </ul>
+
+                    <h4>Bebidas:</h4>
+                    <p>
+                        Todas las opciones incluyen café recién preparado, infusión de
+                        hierbas aromáticas o refresco natural de temporada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: RECORRIDO POR AGROECOLOGÍA -->
+    <div class="modal" id="modalRecorrido" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloRecorrido">
+            <button class="modal__cerrar" data-close aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal__scroll">
+                <h2 class="modal__titulo" id="tituloRecorrido">
+                    Recorrido por Agroecología los Campesinos
+                </h2>
+
+                <div class="modal__texto">
+                    <p>
+                        Acompáñanos en un recorrido por la granja y descubre como preparamos
+                        la tierra para nuestros cultivos, ayuda a alimentar nuestros
+                        animales, descubre la importancia de la polinización para nuestro
+                        ecosistema. Al finalizar el recorrido podrás degustar de un almuerzo
+                        típico "Farm to Table".
+                    </p>
+                    <p>
+                        Te contamos un poco de nuestra historia, además de como contribuimos
+                        al ambiente con nuestras practicas y el uso responsable de los
+                        recursos naturales.
+                    </p>
+
+                    <h3>Preparación de arepas o tortillas</h3>
+                    <p>
+                        Aprende junto a Ivannia y compañía a preparar arepas o tortillas como
+                        un tico. Conoce un poco de cultura culinaria costarricense y degusta
+                        de nuestro café o té local.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: FAMILIA -->
+    <div class="modal" id="modalFamilia" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloFamilia">
+            <button class="modal__cerrar" data-close aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal__scroll">
+                <h2 class="modal__titulo" id="tituloFamilia">Conoce a la familia</h2>
+
+                <!-- Carrusel de 5 fotos — una por integrante -->
+                <div class="modal-carrusel modal-carrusel--familia" data-modal-carrusel>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
+                        aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
+
+                        <div class="modal-carrusel__slide">
+                            <div class="familiar">
+                                <div class="familiar__foto">
+                                    <img src="assets/src/img/familia-1.jpg"
+                                        alt="Benedicto Alvarado Carranza y Lidier Alvarado Mendez" />
+                                </div>
+                                <div class="familiar__info">
+                                    <h3>Benedicto Alvarado Carranza (Benero) y Lidier Alvarado Mendez</h3>
+                                    <p class="familiar__rol">Fundadores del legado</p>
+                                    <p class="familiar__desc">El abuelo y su cuarto hijo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-carrusel__slide">
+                            <div class="familiar">
+                                <div class="familiar__foto">
+                                    <img src="assets/src/img/familia-2.jpg" alt="Ivannia Arguedas Cruz" />
+                                </div>
+                                <div class="familiar__info">
+                                    <h3>Ivannia Arguedas Cruz</h3>
+                                    <p class="familiar__rol">Fundadora del legado y creadora de nuestros productos</p>
+                                    <p class="familiar__desc">Mami es el torbellino que mueve todos nuestros motores</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-carrusel__slide">
+                            <div class="familiar">
+                                <div class="familiar__foto">
+                                    <img src="assets/src/img/familia-3.jpg" alt="Josue Alvarado Arguedas" />
+                                </div>
+                                <div class="familiar__info">
+                                    <h3>Josue Alvarado Arguedas</h3>
+                                    <p class="familiar__rol">Inversionista</p>
+                                    <p class="familiar__desc">El que anima nuestro hogar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-carrusel__slide">
+                            <div class="familiar">
+                                <div class="familiar__foto">
+                                    <img src="assets/src/img/familia-4.jpg" alt="Manfred Alvarado Arguedas" />
+                                </div>
+                                <div class="familiar__info">
+                                    <h3>Manfred Alvarado Arguedas</h3>
+                                    <p class="familiar__rol">Administrador</p>
+                                    <p class="familiar__desc">Profesor de matemáticas y administrador de nuestra finca.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-carrusel__slide">
+                            <div class="familiar">
+                                <div class="familiar__foto">
+                                    <img src="assets/src/img/familia-5.jpg" alt="Ariana Alvarado Arguedas" />
+                                </div>
+                                <div class="familiar__info">
+                                    <h3>Ariana Alvarado Arguedas</h3>
+                                    <p class="familiar__rol">Gestora cultural</p>
+                                    <p class="familiar__desc">
+                                        Encargada de la promoción y la visibilización de nuestras
+                                        tradiciones y costumbres. Pone en escena la colección de
+                                        nuestros visitantes con nuestra cultura costarricense.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
+                        aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/animaciones.js"></script>
 </body>
