@@ -1,743 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description"
-        content="Agroecología Los Campesinos — Experiencias auténticas en una finca familiar en San Luis de Monteverde, Costa Rica." />
-    <title>Agroecología Los Campesinos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Agroecología Los Campesinos — Muy pronto. Un proyecto de vida que conecta con la tierra." />
+  <meta name="robots" content="noindex" />
+  <title>Agroecología Los Campesinos — Muy pronto</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="assets/css/paleta.css" />
+  <link rel="stylesheet" href="assets/css/paleta.css" />
+  <link rel="icon" type="image/png" href="assets/src/logo.png" />
 
-    <link rel="icon" type="image/png" href="assets/src/logo.png" />
+  <style>
+    /* Estilos exclusivos de esta página "en construcción" */
+    .construccion {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(127, 176, 105, 0.25), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(74, 124, 89, 0.35), transparent 50%),
+        linear-gradient(160deg, var(--verde-bosque) 0%, #1e3a28 100%);
+      color: var(--crema);
+      text-align: center;
+      padding: var(--esp-lg) var(--esp-md);
+    }
+
+    /* Hojas decorativas en el fondo */
+    .construccion::before,
+    .construccion::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .construccion::before {
+      width: 320px; height: 320px;
+      top: -80px; left: -80px;
+      background: var(--verde-hoja);
+      animation: flotar 14s ease-in-out infinite;
+    }
+    .construccion::after {
+      width: 380px; height: 380px;
+      bottom: -100px; right: -100px;
+      background: var(--ocre);
+      opacity: 0.18;
+      animation: flotar 18s ease-in-out infinite reverse;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(30px, -30px) scale(1.08); }
+    }
+
+    .construccion__contenido {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--esp-md);
+      max-width: 640px;
+      animation: aparecer 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Logo con el mismo marco del sitio */
+    .construccion__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--verde-tierra);
+      border: 4px solid var(--verde-menta);
+      box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.45),
+        0 0 0 8px rgba(220, 232, 213, 0.12);
+      overflow: hidden;
+      margin-bottom: var(--esp-sm);
+      animation: respirar 4s ease-in-out infinite;
+    }
+
+    @keyframes respirar {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.03); }
+    }
+
+    .construccion__logo img {
+      width: 78%;
+      height: 78%;
+      object-fit: contain;
+    }
+
+    .construccion__marca {
+      font-family: var(--fuente-cuerpo);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde-menta);
+      opacity: 0.85;
+      text-align: center;
+    }
+
+    .construccion__titulo {
+      font-family: var(--fuente-titulos);
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.15;
+      color: var(--crema);
+      text-align: center;
+      margin-top: var(--esp-xs);
+    }
+
+    .construccion__titulo em {
+      font-style: italic;
+      color: var(--verde-hoja);
+    }
+
+    .construccion__texto {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.75;
+      color: var(--verde-menta);
+      opacity: 0.9;
+      text-align: center;
+      max-width: 520px;
+    }
+
+    /* Indicador tipo "loading" con puntos */
+    .construccion__indicador {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: var(--esp-md);
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radio-pill);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 0.9rem;
+      color: var(--verde-menta);
+      font-weight: 500;
+    }
+
+    .construccion__punto {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--verde-hoja);
+      animation: pulso 1.4s ease-in-out infinite;
+    }
+
+    .construccion__punto:nth-child(2) { animation-delay: 0.2s; }
+    .construccion__punto:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulso {
+      0%, 100% { opacity: 0.3; transform: scale(0.85); }
+      50%      { opacity: 1; transform: scale(1.15); }
+    }
+
+    /* Pie con redes */
+    .construccion__pie {
+      position: relative;
+      z-index: 2;
+      margin-top: var(--esp-xxl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--esp-md);
+      animation: aparecer 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    }
+
+    .construccion__redes {
+      display: flex;
+      gap: var(--esp-lg);
+    }
+
+    .construccion__redes a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--crema);
+      font-size: 1.15rem;
+      transition: transform var(--transicion-rapida), background var(--transicion-rapida), color var(--transicion-rapida);
+    }
+
+    .construccion__redes a:hover {
+      transform: translateY(-4px);
+      background: var(--verde-hoja);
+      color: var(--verde-bosque);
+    }
+
+    .construccion__copyright {
+      font-size: 0.8rem;
+      color: var(--verde-menta);
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    /* Ajustes móviles */
+    @media (max-width: 480px) {
+      .construccion__logo {
+        width: 88px;
+        height: 88px;
+        border-width: 3px;
+      }
+      .construccion__pie {
+        margin-top: var(--esp-xl);
+      }
+      .construccion__redes {
+        gap: var(--esp-md);
+      }
+      .construccion__redes a {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- ==================== NAV ==================== -->
-    <header class="nav" id="nav">
-        <div class="nav__contenedor">
-            <a href="#inicio" class="nav__logo">
-                <span class="nav__logo-marco">
-                    <img src="assets/src/logo.png" alt="Agroecología Los Campesinos" />
-                </span>
-                <span class="nav__logo-texto">Los Campesinos</span>
-            </a>
-            <nav class="nav__links" id="navLinks">
-                <a href="#inicio">Inicio</a>
-                <a href="#experiencias">Experiencias</a>
-                <a href="#visitanos">Visítanos</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#voluntariado">Voluntariado</a>
-                <a href="#valores">Valores</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-            <button class="nav__toggle" id="navToggle" aria-label="Menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </header>
+  <main class="construccion">
 
-    <main>
+    <div class="construccion__contenido">
 
-        <!-- ==================== 1. HERO ==================== -->
-        <section class="hero" id="inicio">
-            <video class="hero__video" autoplay muted loop playsinline>
-                <source src="assets/src/video/video-hero.mp4" type="video/mp4" />
-            </video>
-            <div class="hero__overlay"></div>
-            <div class="hero__contenido">
-                <h1 class="hero__slogan animar">
-                    Conectá con la tierra y viví la autenticidad del campo
-                </h1>
-            </div>
-            <a href="#experiencias" class="hero__scroll" aria-label="Desliza">
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
-        </section>
+      <div class="construccion__logo">
+        <img src="assets/src/logo.png" alt="Agroecología Los Campesinos" />
+      </div>
 
-        <!-- ==================== 2. EXPERIENCIAS ==================== -->
-        <section class="seccion seccion--alterna" id="experiencias">
-            <div class="contenedor">
-                <h2 class="animar titulo-seccion">
-                    Viví una experiencia auténtica en una granja familiar en Monteverde
-                </h2>
+      <p class="construccion__marca">Agroecología Los Campesinos</p>
 
-                <!-- CARRUSEL DE TARJETAS -->
-                <div class="carrusel animar" id="carrusel">
-                    <button class="carrusel__flecha carrusel__flecha--izq" id="carruselPrev" aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
+      <h1 class="construccion__titulo">
+        Estamos sembrando <em>algo nuevo</em>
+      </h1>
 
-                    <div class="carrusel__viewport" id="carruselViewport">
+      <p class="construccion__texto">
+        Nuestro sitio está en construcción. Muy pronto podrás conocer nuestras
+        experiencias, hospedarte en la casita campesina y conectar con la tierra
+        como nunca antes.
+      </p>
 
-                        <!-- 1. Casita -->
-                        <article class="tarjeta">
-                            <div class="tarjeta__imagen">
-                                <img src="assets/src/img/casita.jpg" alt="Casita campesina" />
-                            </div>
-                            <div class="tarjeta__cuerpo">
-                                <h3>Nuestra casita campesina te espera</h3>
-                                <p>
-                                    Nuestra casita es un espacio para vivir la esencia del campo.
-                                    Te invitamos a hospedarte y descubrir la magia de despertar con
-                                    el canto de las aves y el susurro del viento entre los árboles.
-                                </p>
-                                <button class="boton-tarjeta" data-modal="modalCasita">
-                                    Conocer la casita
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </article>
+      <div class="construccion__indicador">
+        <span class="construccion__punto"></span>
+        <span class="construccion__punto"></span>
+        <span class="construccion__punto"></span>
+        <span>Próximamente</span>
+      </div>
 
-                        <!-- 2. Platillos -->
-                        <article class="tarjeta">
-                            <div class="tarjeta__imagen">
-                                <img src="assets/src/img/platillos.jpg" alt="Platillos criollos" />
-                            </div>
-                            <div class="tarjeta__cuerpo">
-                                <h3>Disfruta nuestros platillos criollos</h3>
-                                <p>
-                                    Sabores que cuentan historias, aromas que evocan recuerdos.
-                                    Cada bocado es un homenaje a nuestras tradiciones culinarias.
-                                    Disfruta de platos preparados con esmero, utilizando productos
-                                    cultivados en nuestra finca, y déjate seducir por la frescura y
-                                    el sabor de lo auténtico.
-                                </p>
-                                <button class="boton-tarjeta" data-modal="modalPlatillos">
-                                    Ver nuestro menú
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </article>
-
-                        <!-- 3. Tierra -->
-                        <article class="tarjeta">
-                            <div class="tarjeta__imagen">
-                                <img src="assets/src/img/tierra.jpg" alt="Conexión con la tierra" />
-                            </div>
-                            <div class="tarjeta__cuerpo">
-                                <h3>Conecta con nuestra tierra</h3>
-                                <p>
-                                    Embárcate en un viaje sensorial donde cada paso te acerca a la
-                                    esencia de la naturaleza. En nuestra finca agroecológica, te
-                                    invitamos a sentir el latido de la tierra que cultivamos con
-                                    amor y respeto. Conoce nuestras prácticas sostenibles y aprende
-                                    a convivir armoniosamente con el entorno que nos rodea.
-                                </p>
-                                <button class="boton-tarjeta" data-modal="modalRecorrido">
-                                    Explorar la finca
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </article>
-
-                    </div>
-
-                    <button class="carrusel__flecha carrusel__flecha--der" id="carruselNext" aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <div class="carrusel__dots" id="carruselDots"></div>
-                </div>
-
-                <!-- CARRUSEL MINIMALISTA DE ÍCONOS -->
-                <div class="carrusel-iconos animar" id="carruselIconos">
-                    <button class="carrusel__flecha carrusel__flecha--izq" id="iconosPrev" aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <div class="carrusel-iconos__viewport" id="carruselIconosViewport">
-                        <article class="icono">
-                            <div class="icono__circulo">
-                                <i class="fa-solid fa-seedling"></i>
-                            </div>
-                            <h3>Finca Agroecológica</h3>
-                            <p>
-                                Combinamos prácticas agrícolas sostenibles con el respeto por los
-                                ecosistemas locales.
-                            </p>
-                        </article>
-
-                        <article class="icono">
-                            <div class="icono__circulo">
-                                <i class="fa-solid fa-tractor"></i>
-                            </div>
-                            <h3>Finca Integral</h3>
-                            <p>
-                                Integramos diversos sistemas de producción y prácticas sostenibles.
-                            </p>
-                        </article>
-
-                        <article class="icono">
-                            <div class="icono__circulo">
-                                <i class="fa-solid fa-jar"></i>
-                            </div>
-                            <h3>Meliponario Educativo</h3>
-                            <p>
-                                Protegemos y ayudamos a las abejas sin aguijón para conservar la
-                                biodiversidad, impulsar la polinización y compartir saberes sobre
-                                su importancia cultural y ecológica.
-                            </p>
-                        </article>
-                    </div>
-
-                    <button class="carrusel__flecha carrusel__flecha--der" id="iconosNext" aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <div class="carrusel-iconos__progreso">
-                        <div class="carrusel-iconos__barra" id="carruselIconosBarra"></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ==================== 3. VISÍTANOS ==================== -->
-        <section class="seccion visitanos" id="visitanos">
-            <div class="contenedor visitanos__contenido">
-                <h2 class="animar">¡Visítanos!</h2>
-                <p class="animar">
-                    La naturaleza, la cultura y el bienestar se fusionan en nuestra finca
-                    agroecológica, mientras aprendes, compartes y reconectas con la tierra.
-                    Vive una escapatoria tranquila, una experiencia inolvidable y conecta
-                    con la tierra.
-                </p>
-
-                <div class="video-seccion animar">
-                    <video autoplay muted loop playsinline>
-                        <source src="assets/src/video/video-finca.mp4" type="video/mp4" />
-                    </video>
-                </div>
-
-                <p class="animar visitanos__pregunta">¿Qué esperas?</p>
-                <p class="animar">Nuestra finca es el lugar perfecto para ti.</p>
-
-                <div class="visitanos__accion animar">
-                    <a href="#" class="boton boton--outline" id="btnGaleria">
-                        <i class="fa-solid fa-images"></i>
-                        Nuestra galería de fotos
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 4. QUIÉNES SOMOS ==================== -->
-        <section class="seccion nosotros" id="nosotros">
-            <div class="contenedor nosotros__contenido">
-                <h2 class="animar titulo-seccion">¿Quiénes somos?</h2>
-
-                <div class="nosotros__foto animar">
-                    <img src="assets/src/img/familia.jpg" alt="Familia campesina" />
-                </div>
-
-                <div class="nosotros__texto animar">
-                    <p>
-                        Somos una familia de campesinos que creó un proyecto de vida para
-                        preservar la conexión con la tierra. En nuestra finca Agroecología
-                        Los Campesinos, ubicada en San Luis de Monteverde, ofrecemos
-                        experiencias auténticas que permiten a los visitantes sumergirse en
-                        la cultura rural y la agricultura sostenible.
-                    </p>
-                    <p>
-                        Participa en actividades como sembrar orgánico, alimentar animales,
-                        cosechar productos frescos, hospedarte en un entorno natural y
-                        disfrutar de alimentos locales. Además, nos apasiona la conservación
-                        de las abejas sin aguijón, esenciales para la polinización y la salud
-                        de nuestros ecosistemas. A través de prácticas de meliponicultura,
-                        buscamos sensibilizar sobre su importancia y promover su protección.
-                    </p>
-                    <p>
-                        Fomentamos una relación armoniosa entre la humanidad y el medio
-                        ambiente, educando sobre técnicas agrícolas sustentables y el uso
-                        responsable de los recursos naturales.
-                    </p>
-                </div>
-
-                <div class="nosotros__accion animar">
-                    <button class="boton" data-modal="modalFamilia">
-                        <i class="fa-solid fa-people-group"></i>
-                        Conoce a la familia
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 5. VOLUNTARIADO ==================== -->
-        <section class="seccion seccion--alterna voluntariado" id="voluntariado">
-            <div class="contenedor voluntariado__contenido">
-                <h2 class="animar titulo-seccion">Servicio de Voluntariado</h2>
-
-                <div class="voluntariado__grid">
-                    <div class="voluntariado__imagen animar">
-                        <img src="assets/src/img/voluntariado.jpg" alt="Voluntariado en la finca" />
-                    </div>
-
-                    <div class="voluntariado__texto animar">
-                        <p>
-                            ¿Quieres conocer cómo puedes ser parte de nuestro equipo de
-                            voluntarios?
-                        </p>
-                        <p>
-                            Escríbenos para más información.
-                        </p>
-                        <a href="#" class="boton" id="btnVoluntariado">
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                            Quiero ser voluntario
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 6. VALORES Y RESPALDO ==================== -->
-        <section class="seccion valores" id="valores">
-            <div class="contenedor">
-                <h2 class="animar titulo-seccion">Los valores que nos representan</h2>
-
-                <div class="carrusel-valores animar" id="carruselValores">
-                    <button class="carrusel__flecha carrusel__flecha--izq" id="valoresPrev" aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <div class="carrusel-valores__viewport" id="carruselValoresViewport">
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-shield-heart"></i>
-                            </div>
-                            <h3>Conservación</h3>
-                            <p>Protegemos y apoyamos especies fundamentales para la polinización.</p>
-                        </article>
-
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-hands-holding-circle"></i>
-                            </div>
-                            <h3>Conexión</h3>
-                            <p>Fomentamos una relación con la naturaleza y la vida campesina.</p>
-                        </article>
-
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <h3>Educación</h3>
-                            <p>Compartimos conocimientos para inspirar prácticas conscientes y sostenibles.</p>
-                        </article>
-
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-wheat-awn"></i>
-                            </div>
-                            <h3>Cultura</h3>
-                            <p>Preservación y promoción de las tradiciones campesinas.</p>
-                        </article>
-
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-lightbulb"></i>
-                            </div>
-                            <h3>Innovación</h3>
-                            <p>Incorporamos prácticas modernas para mejorar nuestras actividades.</p>
-                        </article>
-
-                        <article class="valor">
-                            <div class="valor__icono">
-                                <i class="fa-solid fa-hand-fist"></i>
-                            </div>
-                            <h3>Empoderamiento</h3>
-                            <p>Brindamos herramientas y conocimientos para tomar decisiones responsables y sostenibles.
-                            </p>
-                        </article>
-                    </div>
-
-                    <button class="carrusel__flecha carrusel__flecha--der" id="valoresNext" aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <div class="carrusel-iconos__progreso">
-                        <div class="carrusel-iconos__barra" id="carruselValoresBarra"></div>
-                    </div>
-                </div>
-
-                <div class="respaldo animar">
-                    <h3 class="respaldo__titulo">Contamos con el respaldo de:</h3>
-
-                    <div class="carrusel-respaldo" id="carruselRespaldo">
-                        <button class="carrusel__flecha carrusel__flecha--izq" id="respaldoPrev" aria-label="Anterior">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-
-                        <div class="carrusel-respaldo__viewport" id="carruselRespaldoViewport">
-                            <div class="respaldo__item">
-                                <img src="assets/src/img/respaldo-1.png" alt="Respaldo 1" />
-                            </div>
-                            <div class="respaldo__item">
-                                <img src="assets/src/img/respaldo-2.png" alt="Respaldo 2" />
-                            </div>
-                            <div class="respaldo__item">
-                                <img src="assets/src/img/respaldo-3.png" alt="Respaldo 3" />
-                            </div>
-                            <div class="respaldo__item">
-                                <img src="assets/src/img/respaldo-4.png" alt="Respaldo 4" />
-                            </div>
-                        </div>
-
-                        <button class="carrusel__flecha carrusel__flecha--der" id="respaldoNext" aria-label="Siguiente">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-
-                        <div class="carrusel__dots" id="carruselRespaldoDots"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== 7. CONTACTO ==================== -->
-        <section class="seccion seccion--verde contacto" id="contacto">
-            <div class="contenedor contacto__contenido">
-                <h2 class="animar titulo-seccion">Contáctanos</h2>
-
-                <a href="#" class="boton animar" id="botonReserva">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Reserva tu visita
-                </a>
-
-                <div class="redes animar">
-                    <a href="#" class="redes__item" aria-label="WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <span>WhatsApp</span>
-                    </a>
-                    <a href="#" class="redes__item" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <span>Facebook</span>
-                    </a>
-                    <a href="#" class="redes__item" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                </div>
-
-                <div class="ubicacion animar">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p>
-                        <strong>Ven a visitarnos</strong><br />
-                        San Luis,<br />
-                        Provincia de Puntarenas,<br />
-                        Monteverde, Costa Rica
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="contenedor footer__contenido">
-            <span class="footer__logo-marco">
-                <img src="assets/src/logo.png" alt="Los Campesinos" class="footer__logo" />
-            </span>
-            <p>© <span id="anio"></span> Agroecología Los Campesinos · Monteverde, Costa Rica</p>
-        </div>
-    </footer>
-
-    <!-- =========================================================
-       MODALES
-       ========================================================= -->
-
-    <!-- MODAL: CASITA CAMPESINA -->
-    <div class="modal" id="modalCasita" aria-hidden="true">
-        <div class="modal__backdrop" data-close></div>
-        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloCasita">
-            <button class="modal__cerrar" data-close aria-label="Cerrar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="modal__scroll">
-                <h2 class="modal__titulo" id="tituloCasita">Casita Campesina</h2>
-
-                <!-- Carrusel de 5 fotos -->
-                <div class="modal-carrusel" data-modal-carrusel>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
-                        aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/casita-1.jpg" alt="Casita 1" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/casita-2.jpg" alt="Casita 2" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/casita-3.jpg" alt="Casita 3" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/casita-4.jpg" alt="Casita 4" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/casita-5.jpg" alt="Casita 5" />
-                        </div>
-                    </div>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
-                        aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
-                </div>
-
-                <div class="modal__texto">
-                    <p>
-                        Estamos ubicados en las faldas del Bosque Nuboso de Monteverde
-                        rodeado de bosque y tranquilidad.
-                    </p>
-                    <p>
-                        Imagina despertarte con el canto de los pájaros. Disfruta de tu café
-                        o té matutino en nuestra terraza procesado en Agroecología los
-                        Campesinos. Rodeado de vistas a las montañas que te dejarán sin
-                        aliento. Con espacios abiertos y una decoración acogedora, te
-                        invitamos a relajarte y recargar energías.
-                    </p>
-                    <p>
-                        Puedes disfrutar de una caminata por la finca, conocer los animales,
-                        las hortalizas y compartir con los anfitriones.
-                    </p>
-
-                    <h3>Acceso a los huéspedes</h3>
-                    <p>
-                        Senderos para caminar en el bosque, mesa de jardín, zona BBQ,
-                        recorrido por la granja (Gallinas, Cerdos, Huerto, Jardín de plantas
-                        medicinales).
-                    </p>
-
-                    <h3>Con tu visita colaboras</h3>
-                    <p>
-                        Tu estancia en la casa apoya el crecimiento del proyecto de
-                        Agroecología los Campesinos.
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- MODAL: PLATILLOS CRIOLLOS -->
-    <div class="modal" id="modalPlatillos" aria-hidden="true">
-        <div class="modal__backdrop" data-close></div>
-        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloPlatillos">
-            <button class="modal__cerrar" data-close aria-label="Cerrar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+    <div class="construccion__pie">
+      <div class="construccion__redes">
+        <a href="#" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
 
-            <div class="modal__scroll">
-                <h2 class="modal__titulo" id="tituloPlatillos">Servicio de desayuno</h2>
-
-                <!-- Carrusel de 3 fotos -->
-                <div class="modal-carrusel" data-modal-carrusel>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
-                        aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/platillos-1.jpg" alt="Desayuno 1" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/platillos-2.jpg" alt="Desayuno 2" />
-                        </div>
-                        <div class="modal-carrusel__slide">
-                            <img src="assets/src/img/platillos-3.jpg" alt="Desayuno 3" />
-                        </div>
-                    </div>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
-                        aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
-                </div>
-
-                <div class="modal__texto">
-                    <p>
-                        Un amanecer con sabor y tradición, disfruta de un desayuno auténtico,
-                        rodeado por la naturaleza y la brisa fresca de la montaña. En
-                        Agroecología los Campesinos, cada plato está preparado con
-                        ingredientes frescos y orgánicos, muchos cultivados en nuestra propia
-                        finca.
-                    </p>
-
-                    <h3>Menú</h3>
-
-                    <h4>Desayuno campesino:</h4>
-                    <p>
-                        Gallo pinto, huevos, plátanos y queso o frutas de temporada.
-                    </p>
-
-                    <h4>Opciones ligeras:</h4>
-                    <ul>
-                        <li>Tostadas con mermelada artesanal y frutas de temporada.</li>
-                        <li>Tostadas con huevo y frutas de temporada.</li>
-                        <li>Pancakes con frutas de temporada.</li>
-                    </ul>
-
-                    <h4>Bebidas:</h4>
-                    <p>
-                        Todas las opciones incluyen café recién preparado, infusión de
-                        hierbas aromáticas o refresco natural de temporada.
-                    </p>
-                </div>
-            </div>
-        </div>
+      <p class="construccion__copyright">
+        © <span id="anio"></span> Agroecología Los Campesinos · Monteverde, Costa Rica
+      </p>
     </div>
 
-    <!-- MODAL: RECORRIDO POR AGROECOLOGÍA -->
-    <div class="modal" id="modalRecorrido" aria-hidden="true">
-        <div class="modal__backdrop" data-close></div>
-        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloRecorrido">
-            <button class="modal__cerrar" data-close aria-label="Cerrar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+  </main>
 
-            <div class="modal__scroll">
-                <h2 class="modal__titulo" id="tituloRecorrido">
-                    Recorrido por Agroecología los Campesinos
-                </h2>
+  <script>
+    // Año dinámico
+    document.getElementById('anio').textContent = new Date().getFullYear();
+  </script>
 
-                <div class="modal__texto">
-                    <p>
-                        Acompáñanos en un recorrido por la granja y descubre como preparamos
-                        la tierra para nuestros cultivos, ayuda a alimentar nuestros
-                        animales, descubre la importancia de la polinización para nuestro
-                        ecosistema. Al finalizar el recorrido podrás degustar de un almuerzo
-                        típico "Farm to Table".
-                    </p>
-                    <p>
-                        Te contamos un poco de nuestra historia, además de como contribuimos
-                        al ambiente con nuestras practicas y el uso responsable de los
-                        recursos naturales.
-                    </p>
-
-                    <h3>Preparación de arepas o tortillas</h3>
-                    <p>
-                        Aprende junto a Ivannia y compañía a preparar arepas o tortillas como
-                        un tico. Conoce un poco de cultura culinaria costarricense y degusta
-                        de nuestro café o té local.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL: FAMILIA -->
-    <div class="modal" id="modalFamilia" aria-hidden="true">
-        <div class="modal__backdrop" data-close></div>
-        <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="tituloFamilia">
-            <button class="modal__cerrar" data-close aria-label="Cerrar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="modal__scroll">
-                <h2 class="modal__titulo" id="tituloFamilia">Conoce a la familia</h2>
-
-                <!-- Carrusel de 5 fotos — una por integrante -->
-                <div class="modal-carrusel modal-carrusel--familia" data-modal-carrusel>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--izq" data-carrusel-prev
-                        aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <div class="modal-carrusel__viewport" data-carrusel-viewport>
-
-                        <div class="modal-carrusel__slide">
-                            <div class="familiar">
-                                <div class="familiar__foto">
-                                    <img src="assets/src/img/familia-1.jpg"
-                                        alt="Benedicto Alvarado Carranza y Lidier Alvarado Mendez" />
-                                </div>
-                                <div class="familiar__info">
-                                    <h3>Benedicto Alvarado Carranza (Benero) y Lidier Alvarado Mendez</h3>
-                                    <p class="familiar__rol">Fundadores del legado</p>
-                                    <p class="familiar__desc">El abuelo y su cuarto hijo</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-carrusel__slide">
-                            <div class="familiar">
-                                <div class="familiar__foto">
-                                    <img src="assets/src/img/familia-2.jpg" alt="Ivannia Arguedas Cruz" />
-                                </div>
-                                <div class="familiar__info">
-                                    <h3>Ivannia Arguedas Cruz</h3>
-                                    <p class="familiar__rol">Fundadora del legado y creadora de nuestros productos</p>
-                                    <p class="familiar__desc">Mami es el torbellino que mueve todos nuestros motores</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-carrusel__slide">
-                            <div class="familiar">
-                                <div class="familiar__foto">
-                                    <img src="assets/src/img/familia-3.jpg" alt="Josue Alvarado Arguedas" />
-                                </div>
-                                <div class="familiar__info">
-                                    <h3>Josue Alvarado Arguedas</h3>
-                                    <p class="familiar__rol">Inversionista</p>
-                                    <p class="familiar__desc">El que anima nuestro hogar</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-carrusel__slide">
-                            <div class="familiar">
-                                <div class="familiar__foto">
-                                    <img src="assets/src/img/familia-4.jpg" alt="Manfred Alvarado Arguedas" />
-                                </div>
-                                <div class="familiar__info">
-                                    <h3>Manfred Alvarado Arguedas</h3>
-                                    <p class="familiar__rol">Administrador</p>
-                                    <p class="familiar__desc">Profesor de matemáticas y administrador de nuestra finca.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-carrusel__slide">
-                            <div class="familiar">
-                                <div class="familiar__foto">
-                                    <img src="assets/src/img/familia-5.jpg" alt="Ariana Alvarado Arguedas" />
-                                </div>
-                                <div class="familiar__info">
-                                    <h3>Ariana Alvarado Arguedas</h3>
-                                    <p class="familiar__rol">Gestora cultural</p>
-                                    <p class="familiar__desc">
-                                        Encargada de la promoción y la visibilización de nuestras
-                                        tradiciones y costumbres. Pone en escena la colección de
-                                        nuestros visitantes con nuestra cultura costarricense.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <button class="modal-carrusel__flecha modal-carrusel__flecha--der" data-carrusel-next
-                        aria-label="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                    <div class="modal-carrusel__dots" data-carrusel-dots></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="assets/js/animaciones.js"></script>
 </body>
-
 </html>
